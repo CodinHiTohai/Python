@@ -1,0 +1,17 @@
+# Write a decorator timer that calculates how long a function takes to execute. Test it with a function that sums numbers from 1 to 1,000,000.
+from time import time
+def timer(func):
+     def wrapper(n):
+          t1=time()
+          func(n)
+          t2=time()
+          print(t2-t1)
+
+     return wrapper
+@timer
+def sum1m(n):
+    sum=0;
+    for i in range(1,n+1):
+         sum+=i
+    return sum
+a=sum1m(1000000)
